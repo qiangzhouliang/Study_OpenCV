@@ -26,6 +26,15 @@ public class Mat {
         mNativePtr = nMat();
     }
 
+    // 对象回收
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        nDelete(mNativePtr);
+    }
+
+    private native void nDelete(long mNativePtr);
+
     // 同一个方法参数不一样要区分
     private native long nMat();
 

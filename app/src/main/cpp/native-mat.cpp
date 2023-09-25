@@ -34,3 +34,9 @@ Java_com_swan_opencv2_Mat_nputF(JNIEnv *env, jobject thiz, jlong mat_ptr, jint r
     Mat *mat = reinterpret_cast<Mat *>(mat_ptr);
     mat->at<float>(row, col) = value;
 }
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_swan_opencv2_Mat_nDelete(JNIEnv *env, jobject thiz, jlong mat_ptr) {
+    Mat *mat = reinterpret_cast<Mat *>(mat_ptr);
+    delete(mat);
+}
