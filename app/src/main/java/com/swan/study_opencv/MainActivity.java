@@ -41,7 +41,30 @@ public class MainActivity extends AppCompatActivity {
         // 图片集合变化
         //testTransform();
         // 封装sdk
-        testSdk();
+        //testSdk();
+
+        // 图片美容
+        //testImgFacial();
+
+        //微信公众号二维码检测与识别
+        testwx_qr_code();
+    }
+
+    // 微信公众号二维码检测与识别
+    private void testwx_qr_code() {
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.qr_code);
+        binding.image1.setImageBitmap(src);
+
+        Bitmap dstB = OpenCVUtils.wx_qr_code(src);
+        binding.image2.setImageBitmap(dstB);
+    }
+
+    private void testImgFacial() {
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.test);
+        binding.image1.setImageBitmap(src);
+
+        Bitmap dstB = OpenCVUtils.imgFacial(src);
+        binding.image2.setImageBitmap(dstB);
     }
 
     /**

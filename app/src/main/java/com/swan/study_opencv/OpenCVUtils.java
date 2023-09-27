@@ -72,4 +72,14 @@ public class OpenCVUtils {
         Utils.mat2bitmap(dstMat, bitmap);
         return bitmap;
     }
+
+    /**
+     * 图片美容
+     * @param bitmap
+     * @return
+     */
+    public static native Bitmap imgFacial(Bitmap bitmap);
+
+    // 微信公众号二维码检测与识别
+    public static native Bitmap wx_qr_code(Bitmap src) ;
 }

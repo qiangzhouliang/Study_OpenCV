@@ -3,7 +3,9 @@
 #include "opencv2/opencv.hpp"
 #include "writeSd.cpp"
 #include "img_operate.cpp"
+#include "img_zft.cpp"
 #include "util/BitmapMatUtils.h"
+
 
 
 
@@ -82,20 +84,31 @@ namespace matT{
         // 霍夫检测
 //        return img_o::txbyjc_hf_check(src);
         // 直方图
-//        return img_o::txbyjc_zft(src);
+        //return img_o::txbyjc_zft(src);
 //        return img_o::txbyjc_data_zft(src);
         // 直方图比较
 //        return img_o::txbyjc_zft_bj(src);
         // 直方图反向投射
 //        return img_o::txbyjc_zft_fxts(src);
         // 直方图 - 模版匹配
-//        return img_o::txbyjc_zft_mbpp(src);
+        return img_o::txbyjc_zft_mbpp(src);
 
         // 银行卡轮廓查找
 //        return img_o::card_lunkuo(src);
         // 图形矩
 //        return img_o::card_txj(src);
         // 图像风水岭切割
-        return img_o::txfslqg(src);
+//        return img_o::txfslqg(src);
+    }
+
+    // 手写直方图
+    string self_zft(Mat src) {
+        // 直方图-亮度-手写
+//        return zft::txbyjc_zft_my_ld(src);
+        // 直方均衡图- 提升对比度
+        return zft::zft_zfjht(src);
+
+        // 直方图计算
+//        return zft::zft_js(src);
     }
 }

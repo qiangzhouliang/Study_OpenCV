@@ -7,13 +7,14 @@
 #include "mat_test.cpp"
 #include "util/BitmapMatUtils.h"
 #include "util/BitmapUtil.h"
+#include "img_wx_qr_code.cpp"
 
 // 获取文件路径
 #define sdPath "/data/user/0/com.swan.study_opencv/files/"
 
-
-
 using namespace std;
+
+
 
 using namespace cv;
 
@@ -48,7 +49,9 @@ Java_com_swan_study_1opencv_Plugin_setImg(JNIEnv *env, jclass clazz, jstring img
     // 饱和度、亮度、对比度
 //    string imgPath = matT::img_degree(src);
     // 图像绘制
-    string imgPath = matT::img_draw(src);
+//    string imgPath = matT::img_draw(src);
+    // 直方图-手写
+    string imgPath = matT::self_zft(src);
 
 
     return env->NewStringUTF(imgPath.c_str());
@@ -308,4 +311,21 @@ Java_com_swan_study_1opencv_NDKBitmapUtils_oilPainting(JNIEnv *env, jclass clazz
     jobject newBitmap = BitmapUtil::getBitMap(env, src_w, src_h);
     BitmapMatUtils::mat2bitmap(env, newBitmap, res);
     return newBitmap;
+}
+
+/**
+ * 图片美容
+ */
+extern "C"
+JNIEXPORT jobject JNICALL
+Java_com_swan_study_1opencv_OpenCVUtils_imgFacial(JNIEnv *env, jclass clazz, jobject bitmap) {
+    return img_mix::imgFacial(env, bitmap);
+
+}
+/// 微信公众号二维码检测与识别
+extern "C"
+JNIEXPORT jobject JNICALL
+Java_com_swan_study_1opencv_OpenCVUtils_wx_1qr_1code(JNIEnv *env, jclass clazz, jobject bitmap) {
+    return qrCode::wxQrCode(env, bitmap);
+
 }
