@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //testBitMap1();
 
         // 手写 QQ 说说图片处理效果
-        //testQQSayImage();
+        testQQSayImage();
         // 图片集合变化
         //testTransform();
         // 封装sdk
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         //testHogBitmap();
         //testLbpBitmap();
         //人脸识别
-        testFaceIdentify();
+        //testFaceIdentify();
     }
     //人脸识别
     private void testFaceIdentify() {
@@ -145,11 +145,11 @@ public class MainActivity extends AppCompatActivity {
         // 浮雕效果
         //Bitmap dstB = anaglyph(src);
         // 马赛克
-        //Bitmap dstB = NDKBitmapUtils.mosaic(src);
+        Bitmap dstB = NDKBitmapUtils.mosaic(src);
         // 毛玻璃
         //Bitmap dstB = NDKBitmapUtils.groundGlass(src);
         // 油画效果
-        Bitmap dstB = NDKBitmapUtils.oilPainting(src);
+        //Bitmap dstB = NDKBitmapUtils.oilPainting(src);
         binding.image2.setImageBitmap(dstB);
         logMemory();
     }

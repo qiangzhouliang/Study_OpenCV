@@ -214,7 +214,7 @@ Java_com_swan_study_1opencv_NDKBitmapUtils_mosaic(JNIEnv *env, jclass clazz, job
             int pixels = src.at<int>(row, col);
             // 10 * 10 的范围内都有第一个 像素值
             for (int m_rows = 1; m_rows < size; ++m_rows) {
-                for (int m_cols = 0; m_cols < size; ++m_cols) {
+                for (int m_cols = 1; m_cols < size; ++m_cols) {
                     src.at<int>(row + m_rows, col + cols_s) = pixels;
                 }
             }
