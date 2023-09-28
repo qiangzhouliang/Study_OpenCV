@@ -5,7 +5,7 @@
 #include "BitmapMatUtils.h"
 #include <android/bitmap.h>
 
-int BitmapMatUtils::bitmap2mat(JNIEnv* env, jobject bitmap, cv::Mat &mat) {
+int BitmapMatUtils::bitmap2mat(JNIEnv* env, jobject &bitmap, cv::Mat &mat) {
     // 1. 锁定画布
     void *pixels; // 像素
     AndroidBitmap_lockPixels(env, bitmap, &pixels);

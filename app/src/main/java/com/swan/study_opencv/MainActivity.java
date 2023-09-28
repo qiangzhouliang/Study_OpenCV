@@ -47,7 +47,36 @@ public class MainActivity extends AppCompatActivity {
         //testImgFacial();
 
         //微信公众号二维码检测与识别
-        testwx_qr_code();
+        //testwx_qr_code();
+        // 人脸识别
+        //testHogBitmap();
+        //testLbpBitmap();
+        //人脸识别
+        testFaceIdentify();
+    }
+    //人脸识别
+    private void testFaceIdentify() {
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.test);
+        binding.image1.setImageBitmap(src);
+
+        Bitmap dstB = OpenCVUtils.faceIdentify(src);
+        binding.image2.setImageBitmap(dstB);
+    }
+
+    private void testLbpBitmap() {
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.img);
+        binding.image1.setImageBitmap(src);
+
+        Bitmap dstB = OpenCVUtils.lbpBitmap(src);
+        binding.image2.setImageBitmap(dstB);
+    }
+
+    private void testHogBitmap() {
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.peoples);
+        binding.image1.setImageBitmap(src);
+
+        Bitmap dstB = OpenCVUtils.hogBitmap(src);
+        binding.image2.setImageBitmap(dstB);
     }
 
     // 微信公众号二维码检测与识别

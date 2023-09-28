@@ -8,14 +8,12 @@
 #include "util/BitmapMatUtils.h"
 #include "util/BitmapUtil.h"
 #include "img_wx_qr_code.cpp"
+#include "img_face_check.cpp"
 
 // 获取文件路径
 #define sdPath "/data/user/0/com.swan.study_opencv/files/"
 
 using namespace std;
-
-
-
 using namespace cv;
 
 extern "C" JNIEXPORT jstring JNICALL
@@ -328,4 +326,32 @@ JNIEXPORT jobject JNICALL
 Java_com_swan_study_1opencv_OpenCVUtils_wx_1qr_1code(JNIEnv *env, jclass clazz, jobject bitmap) {
     return qrCode::wxQrCode(env, bitmap);
 
+}
+
+/// 人脸识别-hog特征提取
+extern "C"
+JNIEXPORT jobject JNICALL
+Java_com_swan_study_1opencv_OpenCVUtils_hogBitmap(JNIEnv *env, jclass clazz, jobject bitmap) {
+    /// hog 特征值提取
+//    return ImgFaceCheck::hogBitmap(env, bitmap);
+    /// 行人检测
+    return ImgFaceCheck::peopleCheck(env, bitmap);
+}
+/// 人脸识别-lbp特征提取
+extern "C"
+JNIEXPORT jobject JNICALL
+Java_com_swan_study_1opencv_OpenCVUtils_lbpBitmap(JNIEnv *env, jclass clazz, jobject bitmap) {
+    /// lbp 特征值提取
+    return ImgFaceCheck::lbpBitmap(env, bitmap);
+}
+/// 人脸识别
+extern "C"
+JNIEXPORT jobject JNICALL
+Java_com_swan_study_1opencv_OpenCVUtils_faceIdentify(JNIEnv *env, jclass clazz, jobject bitmap) {
+    // 均值、方差与协方差
+    // 1. 均值
+//    return ImgFaceCheck::mean_value(env, bitmap);
+
+    // PCA 原理与应用，降维
+    return ImgFaceCheck::pca(env, bitmap);
 }

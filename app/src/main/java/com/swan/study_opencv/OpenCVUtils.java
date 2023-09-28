@@ -82,4 +82,11 @@ public class OpenCVUtils {
 
     // 微信公众号二维码检测与识别
     public static native Bitmap wx_qr_code(Bitmap src) ;
+
+    //人脸识别、 hog 特征提取
+    public static native Bitmap hogBitmap(Bitmap bitmap) ;
+    // 人脸识别、 lbp 特征提取
+    public static native Bitmap lbpBitmap(Bitmap bitmap) ;
+
+    public static native Bitmap faceIdentify(Bitmap bitmap) ;
 }

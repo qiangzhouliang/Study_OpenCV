@@ -17,7 +17,7 @@ public:
     /**
      * bitmap2mat bitmap 转 map
      */
-    static int bitmap2mat(JNIEnv* env, jobject bitmap, Mat &mat);
+    static int bitmap2mat(JNIEnv* env, jobject &bitmap, Mat &mat);
 
     /**
      * mat 转 bitmap
